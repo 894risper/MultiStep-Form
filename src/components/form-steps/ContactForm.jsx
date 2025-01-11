@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import {useForm} from "react-hook-form"
+import { Input } from '../ui/inputs';
 
 const ContactForm = () => {
   const {register,handleSubmit,formState,reset}= useForm();
@@ -22,7 +23,7 @@ const handleFormSubmit=()=>{
 <form onSubmit={handleSubmit(handleFormSubmit)}>
   <div>
     <label htmlFor="fullname">FullName
-      <input
+      <Input
       type="text"
       placeholder='Fullname'
 {...register("fullname",{
@@ -43,7 +44,7 @@ const handleFormSubmit=()=>{
   </div>
   <div>
     <label htmlFor="email">Email
-<input type="text"
+<Input type="text"
 placeholder='Email'
 {...register("email",{
   required:"your email is required",
@@ -64,7 +65,7 @@ placeholder='Email'
   </div>
   <div>
     <label htmlFor="phoneNummber">Phone Number 
-<input
+<Input
  type="text" 
 placeholder='PhoneNumber'
 {...register("phoneNumber",{

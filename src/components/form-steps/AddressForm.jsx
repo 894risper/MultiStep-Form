@@ -1,11 +1,11 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-
+import { Input } from '../ui/inputs';
 const AddressForm = () => {
 const {register,handleSubmit,formState,reset}= useForm();
 
 
-useEffect (()=>{
+useForm (()=>{
     reset({streetAddress:"" ,city :"",state:"",zipCode:""})
 },[reset]);
 
@@ -13,17 +13,17 @@ const handleFormSubmit=()=>{
     reset()
 }
   return (
-    <div>
+    <div className='border border-gray-200 '>
 <div>
 <h1>Address Information</h1>
 <p>Step 1/4</p>
 
 </div>
-<form onSubmit={handleSubmit(handleFormSubmit)}>
+<form onSubmit={handleSubmit(handleFormSubmit)}  >
 
     <div>
         <label htmlFor="streetAddress">Street Address
-<input type="text"
+<Input type="text"
 {...register ("streetAddress",{
     required:"the street address is required",
 pattern:{
@@ -42,7 +42,7 @@ pattern:{
     </div>
 <div>
     <label htmlFor="city">City
-        <input type="text" 
+        <Input type="text" 
         {...register("city",{
           required:"the name of the city is required" ,
           pattern:{
@@ -61,7 +61,9 @@ pattern:{
 </div>
 <div>
 <label htmlFor="state">State
-<input type="text"
+<Input
+className="flex"
+type="text"
 {...register("state",{
     required:"the state is required",
     pattern:{
@@ -82,7 +84,7 @@ pattern:{
 </div>
 <div>
     <label htmlFor="zipCode">Zip code
-        <input type="text" 
+        <Input type="text" 
         {...register("city",{
           required:"the name of the city is required" ,
           pattern:{
